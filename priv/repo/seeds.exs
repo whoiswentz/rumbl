@@ -9,3 +9,8 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+alias Rumbl.Multimedia
+
+~w(Action Drama Romance Comedy Sci-fi)
+|> Enum.each(&Multimedia.create_category!/1)
