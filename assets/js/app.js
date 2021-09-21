@@ -1,15 +1,26 @@
 // We need to import the CSS so that webpack will load it.
-// The MiniCssExtractPlugin is used to separate it out into
+// The ExtractTextPlugin is used to separate it out into
 // its own CSS file.
-import "../css/app.css"
+import css from "../css/app.css"
 
 // webpack automatically bundles all modules in your
 // entry points. Those entry points can be configured
 // in "webpack.config.js".
 //
-// Import deps with the dep name or local files with a relative path, for example:
-//
-//     import {Socket} from "phoenix"
-//     import socket from "./socket"
+// Import dependencies
 //
 import "phoenix_html"
+
+// Import local files
+//
+// Local files can be imported directly using relative paths, for example:
+// import socket from "./socket"
+
+import Player from "./player"
+let video = document.getElementById("video")
+
+if (video) {
+	new Player(video.id, video.getAttribute("data-player-id"), () => {
+		console.log("player ready!")
+	})
+}
